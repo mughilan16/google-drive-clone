@@ -34,7 +34,7 @@ export default function SideBar() {
         <span className="text-3xl font-normal">+</span>
         <span className="text-sm">New</span>
       </button>
-      <div className="pt-5 flex flex-col gap-3">
+      <div className="pt-5 flex flex-col gap-5">
         {pages.map(div => <Division division={div} />)}
       </div>
       <div className="px-4 py-2 flex flex-col gap-1.5">
@@ -65,10 +65,10 @@ function Item(props: { item: { name: string, icon: string } }) {
   return (
     <button
       className={`${currentPage === props.item.name ? "bg-brand-active " : ""}`
-        + "rounded-3xl px-3 py-1 text-[13px] text-brand-text flex items-center gap-4 hover:bg-brand-hover"}
+        + "rounded-3xl px-5 py-1 text-[14px] text-brand-text flex items-center gap-4 hover:bg-brand-hover"}
       onClick={handleClick} >
       <img src={props.item.icon} className="w-4 h-4" />
-      <span className="font-semibold">{props.item.name}</span>
+      <span>{props.item.name}</span>
     </button>
   )
 }

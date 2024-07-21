@@ -14,22 +14,31 @@ import Bin from "./components/Bin"
 import Spam from "./components/Spam"
 import Starred from "./components/Starred"
 import Computers from "./components/Computers"
+import SharedWithMe from "./components/SharedWithMe"
+import Recent from "./components/Recent"
+
+const pages: { [id: string]: () => JSX.Element } = {
+  "Home": Home,
+  "My Drive": MyDrive,
+  "Computers": Computers,
+  "Shared With Me": SharedWithMe,
+  "Recent": Recent,
+  "Starred": Starred,
+  "Spam": Spam,
+  "Bin": Bin,
+  "Storage": Storage
+}
 
 function App() {
   const page = useStore(state => state.page)
+  const CurrentPage = pages[page];
   return (
     <div className="w-screen h-screen flex flex-col bg-brand-bg px-5 py-2">
       <NavBar />
       <div className="flex-grow pt-1.5 flex">
         <SideBar />
         <div className="bg-brand-bg-alt flex-grow rounded-2xl p-5">
-          {page === "Home" && <Home />}
-          {page === "My Drive" && <MyDrive />}
-          {page === "Storage" && <Storage />}
-          {page === "Bin" && <Bin />}
-          {page === "Spam" && <Spam />}
-          {page === "Starred" && <Starred />}
-          {page === "Computers" && <Computers />}
+          <CurrentPage />
         </div>
       </div>
     </div>
