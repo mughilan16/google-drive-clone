@@ -10,6 +10,10 @@ import Home from "./components/Home"
 import MyDrive from "./components/MyDrive"
 import useStore from "./store"
 import Storage from "./components/Storage"
+import Bin from "./components/Bin"
+import Spam from "./components/Spam"
+import Starred from "./components/Starred"
+import Computers from "./components/Computers"
 
 function App() {
   const page = useStore(state => state.page)
@@ -22,6 +26,10 @@ function App() {
           {page === "Home" && <Home />}
           {page === "My Drive" && <MyDrive />}
           {page === "Storage" && <Storage />}
+          {page === "Bin" && <Bin />}
+          {page === "Spam" && <Spam />}
+          {page === "Starred" && <Starred />}
+          {page === "Computers" && <Computers />}
         </div>
       </div>
     </div>

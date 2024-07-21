@@ -10,6 +10,7 @@ export default {
           "secondary": "#37393b",
           "text": "#dae2e5",
           "text-alt": "#aeb0b0",
+          "warning": "#474747",
           "hover": "#2b2b2b",
           "primary": "#a8c7fa",
           "active": "#004a77",
