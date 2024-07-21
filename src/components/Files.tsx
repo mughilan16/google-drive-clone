@@ -20,17 +20,17 @@ export const data: Array<Node> = [
   { name: "file9.txt", type: "file", fileType: "text" },
   { name: "file10.txt", type: "file", fileType: "text" },
   { name: "file11.txt", type: "file", fileType: "text" },
-  { name: "folder1.txt", type: "folder", fileType: "folder" },
-  { name: "folder2.txt", type: "folder", fileType: "folder" },
-  { name: "folder3.txt", type: "folder", fileType: "folder" },
-  { name: "folder4.txt", type: "folder", fileType: "folder" },
-  { name: "folder5.txt", type: "folder", fileType: "folder" },
-  { name: "folder6.txt", type: "folder", fileType: "folder" },
-  { name: "folder7.txt", type: "folder", fileType: "folder" },
-  { name: "folder8.txt", type: "folder", fileType: "folder" },
-  { name: "folder9.txt", type: "folder", fileType: "folder" },
-  { name: "folder10.txt", type: "folder", fileType: "folder" },
-  { name: "folder11.txt", type: "folder", fileType: "folder" },
+  { name: "folder1", type: "folder", fileType: "folder" },
+  { name: "folder2", type: "folder", fileType: "folder" },
+  { name: "folder3", type: "folder", fileType: "folder" },
+  { name: "folder4", type: "folder", fileType: "folder" },
+  { name: "folder5", type: "folder", fileType: "folder" },
+  { name: "folder6", type: "folder", fileType: "folder" },
+  { name: "folder7", type: "folder", fileType: "folder" },
+  { name: "folder8", type: "folder", fileType: "folder" },
+  { name: "folder9", type: "folder", fileType: "folder" },
+  { name: "folder10", type: "folder", fileType: "folder" },
+  { name: "folder11", type: "folder", fileType: "folder" },
 ]
 
 
@@ -48,18 +48,16 @@ export function File(props: { node: Node }) {
 }
 
 export function FileBlock(props: { node: Node }) {
-  return (
-    <div className="w-72 bg-brand-bg p-3 rounded-xl flex flex-col gap-2">
+  const view = {
+    "file": <div className="w-72 bg-brand-bg p-3 rounded-xl flex flex-col gap-2">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4 text-brand-text">
-          {props.node.type === "folder" && <img src={folderIcon} className="w-4 h-4" />}
           {props.node.fileType === "text" && <img src={textFileIcon} className="w-4 h-4" />}
           {props.node.name}
         </div>
         <img src={dotsIcon} className="w-4 h-4" />
       </div>
       <div className="h-36 bg-brand-bg-alt rounded-xl flex items-center align-middle justify-center">
-        {props.node.type === "folder" && <img src={folderIcon} className="w-16 h-16" />}
         {props.node.fileType === "text" && <img src={textFileIcon} className="w-16 h-16" />}
       </div>
       <div className="flex items-center gap-3 px-1">
@@ -70,6 +68,14 @@ export function FileBlock(props: { node: Node }) {
           You opened • 28 June 2024
         </div>
       </div>
+    </div>,
+    "folder": <div className="w-72 bg-brand-bg p-3 rounded-lg flex items-center text-brand-text justify-between">
+      <div className="flex items-center gap-3">
+        <img src={folderIcon} className="w-4 h-4" />
+        {props.node.name}
+      </div>
+      <img src={dotsIcon} className="w-4 h-4" />
     </div>
-  )
+  }
+  return view[props.node.type]
 }

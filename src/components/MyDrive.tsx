@@ -32,13 +32,13 @@ export default function MyDrive() {
         </div>
       </div>
       <div className="flex text-brand-text gap-2">
-        <select className="bg-transparent border border-gray-500 px-3 py-1 rounded-lg">
+        <select className="bg-brand-bg-alt border border-gray-500 px-3 py-1 rounded-lg ">
           <option>Type</option>
         </select>
-        <select className="bg-transparent border border-gray-500 px-3 py-1 rounded-lg">
+        <select className="bg-brand-bg-alt border border-gray-500 px-3 py-1 rounded-lg">
           <option>People</option>
         </select>
-        <select className="bg-transparent border border-gray-500 px-3 py-1 rounded-lg">
+        <select className="bg-brand-bg-alt border border-gray-500 px-3 py-1 rounded-lg">
           <option>Modified</option>
         </select>
       </div>

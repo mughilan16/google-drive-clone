@@ -29,13 +29,20 @@ export default function SideBar() {
   ];
 
   return (
-    <div className="pt-3 w-60 pr-4">
+    <div className="pt-3 w-56 pr-4">
       <button className="pr-4 pl-5 py-2 bg-brand-secondary text-brand-text flex gap-3 items-center rounded-2xl font-semibold">
         <span className="text-3xl font-normal">+</span>
         <span className="text-sm">New</span>
       </button>
-      <div className="pt-5 flex flex-col gap-5">
+      <div className="pt-5 flex flex-col gap-3">
         {pages.map(div => <Division division={div} />)}
+      </div>
+      <div className="px-4 py-2 flex flex-col gap-1.5">
+        <div className="w-full rounded-full h-1 bg-gray-700">
+          <div className="h-1 rounded-full dark:bg-brand-primary w-3/5"></div>
+        </div>
+        <div className="text-xs text-brand-text-alt">7.33 GB of 15 GB used </div>
+        <button className="text-sm text-brand-primary border-brand-text-alt border w-4/5 py-2 rounded-full">Get more storage</button>
       </div>
     </div>
   )
@@ -43,7 +50,7 @@ export default function SideBar() {
 
 function Division(props: { division: Array<{ name: string, icon: string }> }) {
   return (
-    <div className="flex flex-col gap-1">
+    <div className="flex flex-col gap-0.5">
       {props.division.map(item => <Item item={item} />)}
     </div>
   )
@@ -58,10 +65,10 @@ function Item(props: { item: { name: string, icon: string } }) {
   return (
     <button
       className={`${currentPage === props.item.name ? "bg-brand-active " : ""}`
-        + "rounded-3xl px-3 py-1 text-sm text-brand-text flex items-center gap-4 hover:bg-brand-hover"}
+        + "rounded-3xl px-3 py-1 text-[13px] text-brand-text flex items-center gap-4 hover:bg-brand-hover"}
       onClick={handleClick} >
       <img src={props.item.icon} className="w-4 h-4" />
-      <span>{props.item.name}</span>
+      <span className="font-semibold">{props.item.name}</span>
     </button>
   )
 }
